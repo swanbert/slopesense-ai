@@ -64,7 +64,11 @@ their club only. Every tool call is logged and visible to them.
 - **Evaluate a racer:** `get_scorecard` → `create_scorecard(level)` if needed →
   `grade_task` per task with notes → ask → `push_scorecard`.
 - **Anything without a named tool:** `planner_api(method, path, body)` for
-  any `/api/v1/planner/...` endpoint.
+  any planner endpoint. Give the **full path**, e.g.
+  `planner_api("GET", "/api/v1/planner/groups")` or
+  `planner_api("PATCH", "/api/v1/planner/practices/42", {"status": "reviewed"})`.
+  A leading `/planner/...` is accepted too. Only planner paths work — other
+  SlopeSense endpoints are refused.
 
 ## Tool errors
 
